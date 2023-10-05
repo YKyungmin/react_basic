@@ -8,7 +8,7 @@ export default function Contact() {
 	//리액트 컴포넌트안쪽에서 window객체로부터 kakao객체를 비구조화할당을 이용해서 수동으로 꺼내옴
 	const { kakao } = window;
 	const mapOption = {
-		center: new kakao.maps.LatLng(37.584707, 126.885563),
+		center: new kakao.maps.LatLng(37.584772643578795, 126.88567840695622),
 		level: 1,
 	};
 	//마커 위치 인스턴스를 인수로 전달해서 마커 출력 인스턴스 객체를 생성
