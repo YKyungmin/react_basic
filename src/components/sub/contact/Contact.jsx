@@ -11,7 +11,7 @@ export default function Contact() {
 	const instance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
 	const [Index, setIndex] = useState(2);
-	const [IsMap, setIsMap] = useState(false);
+	const [IsMap, setIsMap] = useState(true);
 
 	const { kakao } = window;
 	//첫번째 지도를 출력하기 위한 객체정보
