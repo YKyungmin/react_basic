@@ -1,14 +1,17 @@
 import { Link } from 'react-router-dom/cjs/react-router-dom.min';
 import Layout from '../../common/layout/Layout';
 import './Contact.scss';
+import emailjs from '@emailjs/browser';
 import { useRef, useEffect, useState } from 'react';
 
 export default function Contact() {
+	const form = useRef(null);
 	const map = useRef(null);
 	const view = useRef(null);
 	const instance = useRef(null);
 	const [Traffic, setTraffic] = useState(false);
 	const [Index, setIndex] = useState(2);
+	const [IsMap, setIsMap] = useState(false);
 
 	const { kakao } = window;
 	//첫번째 지도를 출력하기 위한 객체정보
@@ -74,7 +77,7 @@ export default function Contact() {
 		//로드뷰 관련 코드
 		new kakao.maps.RoadviewClient().getNearestPanoId(
 			info.current[Index].latlng,
-			50,
+			100, //해당 지도의 위치값에서 반경 100미터 안에 제일 가까운 도로 기준으로 로드뷰화면 생성
 			(panoId) => {
 				new kakao.maps.Roadview(view.current).setPanoId(
 					panoId,
@@ -91,28 +94,71 @@ export default function Contact() {
 			: instance.current.removeOverlayMapTypeId(kakao.maps.MapTypeId.TRAFFIC);
 	}, [Traffic]);
 
-	return (
-		<Layout title={'Contact'}>
-			<button onClick={() => setTraffic(!Traffic)}>
-				{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
-			</button>
+	//form mail 기능함수
+	const sendEmail = (e) => {
+		e.preventDefault();
 
-			<button onClick={setCenter}>지도 위치 초기화</button>
+		emailjs
+			.sendForm(
+				'YOUR_SERVICE_ID',
+				'YOUR_TEMPLATE_ID',
+				form.current,
+				'YOUR_PUBLIC_KEY'
+			)
+			.then(
+				(result) => {
+					alert('문의내용이 메일로 발송되었습니다.');
+				},
+				(error) => {
+					alert('문의내용 전송에 실패했습니다.');
+				}
+			);
 
-			<div className='map' ref={map}></div>
-			<div className='view' ref={view}></div>
+		return (
+			<Layout title={'Contact'}>
+				<div id='mailBox'>
+					<form ref={form} onSubmit={sendEmail}>
+						<label>Name</label>
+						<input type='text' name='user_name' />
+						<label>Email</label>
+						<input type='email' name='user_email' />
+						<label>Message</label>
+						<textarea name='message' />
+						<input type='submit' value='Send' />
+					</form>
+				</div>
 
-			<ul>
-				{info.current.map((el, idx) => (
-					<li
-						className={Index === idx ? 'on' : ''}
-						key={idx}
-						onClick={() => setIndex(idx)}
-					>
-						{el.title}
-					</li>
-				))}
-			</ul>
-		</Layout>
-	);
+				<div id='mapBox'>
+					<button onClick={() => setTraffic(!Traffic)}>
+						{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
+					</button>
+
+					<button onClick={setCenter}>지도 위치 초기화</button>
+					<button onClick={() => setIsMap(!IsMap)}>
+						{IsMap ? '로드뷰보기' : '지도보기'}
+					</button>
+
+					<div className='container'>
+						<div className={`view ${IsMap ? '' : 'on'}`} ref={view}></div>
+						<div className={`map ${IsMap ? 'on' : ''}`} ref={map}></div>
+					</div>
+
+					<ul>
+						{info.current.map((el, idx) => (
+							<li
+								className={Index === idx ? 'on' : ''}
+								key={idx}
+								onClick={() => {
+									setIndex(idx);
+									setIsMap(true);
+								}}
+							>
+								{el.title}
+							</li>
+						))}
+					</ul>
+				</div>
+			</Layout>
+		);
+	};
 }
