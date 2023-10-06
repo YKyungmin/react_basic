@@ -46,6 +46,7 @@ export default function Contact() {
 	});
 
 	useEffect(() => {
+		map.current.innerHTML = '';
 		//객체 정보를 활용한 지도 객체 생성
 		instance.current = new kakao.maps.Map(map.current, {
 			center: info.current[Index].latlng,
