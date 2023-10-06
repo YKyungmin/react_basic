@@ -59,7 +59,7 @@ export default function Contact() {
 			mapTypeControl,
 			kakao.maps.ControlPosition.BOTTOMLEFT
 		);
-	}, []);
+	}, [Index]);
 
 	useEffect(() => {
 		//traffic 값이 바뀔때마다 실행될 구문
@@ -74,6 +74,29 @@ export default function Contact() {
 				{Traffic ? '교통정보 끄기' : '교통정보 켜기'}
 			</button>
 			<div className='map' ref={map}></div>
+			<ul>
+				<li
+					onClick={() => {
+						setIndex(0);
+					}}
+				>
+					삼성역 코엑스
+				</li>
+				<li
+					onClick={() => {
+						setIndex(1);
+					}}
+				>
+					넥슨 본사
+				</li>
+				<li
+					onClick={() => {
+						setIndex(2);
+					}}
+				>
+					서울 시청
+				</li>
+			</ul>
 		</Layout>
 	);
 }
