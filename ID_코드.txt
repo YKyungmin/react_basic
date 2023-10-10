@@ -10,13 +10,20 @@
 			1540091ae2cb6339ff9bbee036caae0e
 
 
+			const my_id = '199261363@N05';
 
 
-			const [Pics, setPics] = useState([]);
+			let url = '';
 			const api_key = '1540091ae2cb6339ff9bbee036caae0e';
 			const method_interest = 'flickr.interestingness.getList';
-			const num = 500;
-			const url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
+			const method_user = 'flickr.people.getPhotos';
+
+
+			const num = 50;
+
+
+			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
 
 
 			http://farm{icon-farm}.staticflickr.com/{icon-server}/buddyicons/{nsid}.jpg
+
