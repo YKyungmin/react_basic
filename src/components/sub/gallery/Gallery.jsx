@@ -12,6 +12,7 @@ export default function Gallery() {
 		const api_key = '1540091ae2cb6339ff9bbee036caae0e';
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
+		const method_search = 'flickr.photos.search';
 
 		const num = 50;
 
@@ -23,6 +24,9 @@ export default function Gallery() {
 		if (opt.type === 'user') {
 			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
 		}
+		if (opt.type === 'search') {
+			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
+		}
 
 		const data = await fetch(url);
 		const json = await data.json();
@@ -33,12 +37,21 @@ export default function Gallery() {
 	useEffect(() => {
 		//type: 'interest' 인터레스트 방식 갤러리 호출
 		//type: 'user' 사용자 아이디 계정의 갤러리 호출
-		fetchData({ type: 'user', id: my_id });
+		//type: 'search' 검색키워드로 갤러리 호출
+		//fetchData({ type: 'user', id: my_id });
 		//fetchData({ type: 'interest' });
+		fetchData({ type: 'search', tags: 'ocean' });
 	}, []);
 
 	return (
 		<Layout title={'Gallery'}>
+			<button onClick={() => fetchData({ type: 'user', id: my_id })}>
+				My Gallery
+			</button>
+			<button onClick={() => fetchData({ type: 'interest' })}>
+				Interest Gallery
+			</button>
+
 			<div className='picFrame'>
 				<Masonry
 					elementType={'div'}
@@ -62,7 +75,13 @@ export default function Gallery() {
 											src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
 											alt={data.owner}
 										/>
-										<span>{data.owner}</span>
+										<span
+											onClick={() =>
+												fetchData({ type: 'user', id: data.owner })
+											}
+										>
+											{data.owner}
+										</span>
 									</div>
 								</div>
 							</article>

@@ -17,6 +17,7 @@
 			const api_key = '1540091ae2cb6339ff9bbee036caae0e';
 			const method_interest = 'flickr.interestingness.getList';
 			const method_user = 'flickr.people.getPhotos';
+			const method_search = 'flickr.photos.search';
 
 
 			const num = 50;
