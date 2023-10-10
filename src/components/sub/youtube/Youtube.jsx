@@ -20,9 +20,10 @@ export default function Youtube() {
 	const [Index, setIndex] = useState(0);
 
 	const fetchYoutube = () => {
-		const api_key = process.env.REACT_APP_YOUTUBE_API;
-		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
-		const pid = 'PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu';
+		const api_key = 'AIzaSyDJt4CHCpOKxhmt--qva0-DwF-aS2nbwSc';
+		const baseURL =
+			'https://youtube.com/playlist?list=PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt&si=t4FoJbCLMR7MEAsV';
+		const pid = 'PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt';
 		const num = 5;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
