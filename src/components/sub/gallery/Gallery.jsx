@@ -1,6 +1,7 @@
 import Layout from '../../common/layout/Layout';
 import './Gallery.scss';
 import { useState, useEffect } from 'react';
+import Masonry from 'react-masonry-component';
 
 export default function Gallery() {
 	const [Pics, setPics] = useState([]);
@@ -20,17 +21,37 @@ export default function Gallery() {
 
 	return (
 		<Layout title={'Gallery'}>
-			{Pics.map((data, idx) => {
-				return (
-					<article key={idx}>
-						<h2>{data.title}</h2>
-						<img
-							src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
-							alt={data.title}
-						/>
-					</article>
-				);
-			})}
+			<div className='picFrame'>
+				<Masonry
+					elementType={'div'}
+					options={{ transitionDuration: '0.5s' }}
+					disableImagesLoaded={false}
+					updateOnEachImageLoad={false}
+				>
+					{Pics.map((data, idx) => {
+						return (
+							<article key={idx}>
+								<div className='inner'>
+									<img
+										className='pic'
+										src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
+										alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
+									/>
+									<h2>{data.title}</h2>
+
+									<div className='profile'>
+										<img
+											src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
+											alt={data.owner}
+										/>
+										<span>{data.owner}</span>
+									</div>
+								</div>
+							</article>
+						);
+					})}
+				</Masonry>
+			</div>
 		</Layout>
 	);
 }
