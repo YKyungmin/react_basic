@@ -18,22 +18,88 @@ export default function Department() {
 
 	return (
 		<Layout title={'Department'}>
-			<div className='container'>
-				<div className='infoBox'></div>
+			<div className='main'>
+				<h2 className='h_1'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+					libero at itaque <span className='h_2'>Aperiam,</span> doloribus
+					accusantium.
+				</h2>
+				<p className='p_1'>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+					totam illum iusto rem tenetur eligendi molestias repellendus, quod non
+					magni quam repudiandae id reprehenderit odit, tempore ipsam beatae qui
+					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
+					unde voluptates atque delectus, aliquam assumenda provident, maiores
+					vero vitae hic.
+					<br />
+					<br />
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+					totam illum iusto rem tenetur eligendi molestias repellendus, quod non
+					magni quam repudiandae id reprehenderit odit, tempore ipsam beatae qui
+					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
+					unde voluptates atque delectus, aliquam assumenda provident, maiores
+					vero vitae hic.
+				</p>
+			</div>
 
-				<div className='memberBox'>
-					{Department.map((member, idx) => {
-						return (
-							<article key={idx}>
-								<div className='pic'>
-									<img src={`${path}/img/${member.pic}`} alt={member.name} />
-								</div>
-								<h2>{member.name}</h2>
-								<p>{member.position}</p>
-							</article>
-						);
-					})}
+			<div className='mainbox'>
+				<div className='textbox'>
+					<h3>
+						Lorem ipsum <br />
+						dolor sit amet.
+					</h3>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+						voluptas porro repellat rem nemo deleniti.
+					</p>
 				</div>
+
+				<div className='textbox'>
+					<h3>
+						Lorem ipsum <br />
+						dolor sit amet.
+					</h3>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+						voluptas porro repellat rem nemo deleniti.
+					</p>
+				</div>
+
+				<div className='textbox'>
+					<h3>
+						Lorem ipsum <br />
+						dolor sit amet.
+					</h3>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+						voluptas porro repellat rem nemo deleniti.
+					</p>
+				</div>
+
+				<div className='textbox'>
+					<h3>
+						Lorem ipsum <br />
+						dolor sit amet.
+					</h3>
+					<p>
+						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+						voluptas porro repellat rem nemo deleniti.
+					</p>
+				</div>
+			</div>
+
+			<div className='memberBox'>
+				{Department.map((member, idx) => {
+					return (
+						<article key={idx}>
+							<div className='pic'>
+								<img src={`${path}/img/${member.pic}`} alt={member.name} />
+							</div>
+							<h2>{member.name}</h2>
+							<p>{member.position}</p>
+						</article>
+					);
+				})}
 			</div>
 		</Layout>
 	);
