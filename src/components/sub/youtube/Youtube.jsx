@@ -20,10 +20,9 @@ export default function Youtube() {
 	const [Index, setIndex] = useState(0);
 
 	const fetchYoutube = () => {
-		const api_key = 'AIzaSyDJt4CHCpOKxhmt--qva0-DwF-aS2nbwSc';
-		const baseURL =
-			'https://youtube.com/playlist?list=PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt&si=t4FoJbCLMR7MEAsV';
-		const pid = 'PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt';
+		const api_key = process.env.REACT_APP_YOUTUBE_API;
+		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
+		const pid = 'PLHtvRFLN5v-W5bQjvyH8QTdQQhgflJ3nu';
 		const num = 5;
 		const resultURL = `${baseURL}?key=${api_key}&part=snippet&playlistId=${pid}&maxResults=${num}`;
 
@@ -34,6 +33,7 @@ export default function Youtube() {
 				setYoutube(json.items);
 			});
 	};
+
 	useEffect(() => {
 		fetchYoutube();
 	}, []);
@@ -49,7 +49,7 @@ export default function Youtube() {
 					return (
 						<article key={idx}>
 							<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
-							<p>{desc.length > 100 ? desc.substr(0, 100) + '...' : desc}</p>
+							<p>{desc.length > 180 ? desc.substr(0, 180) + '...' : desc}</p>
 							<span>{date.split('T')[0].split('-').join('.')}</span>
 							<div
 								className='pic'
@@ -67,6 +67,7 @@ export default function Youtube() {
 					);
 				})}
 			</Layout>
+
 			{IsModal && (
 				<Modal setIsModal={setIsModal}>
 					<iframe

@@ -32,6 +32,7 @@
 
 
 		const api_key = 'AIzaSyDJt4CHCpOKxhmt--qva0-DwF-aS2nbwSc';
-		const baseURL =
-			'https://youtube.com/playlist?list=PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt&si=t4FoJbCLMR7MEAsV';
+		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 		const pid = 'PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt';
+
+		
