@@ -67,4 +67,13 @@ export default function Department() {
 
 		return JSX
 	}
+
+	fetch: ES6에서 기본 문법으로 포함된 동기적으로 외부 데이터를 가져오는 내장함수 
+	fetch는 promise반환
+	promise가 반환되야지 .then 구분 호출 가능
+	.then구분을 호출해야지만 동기적으로 다음 코드 실행 가능
+
+	JSON (자바스크립트 오브젝트 노테이션) 자바스크립트 객체 표현식 
+	- 자바스크립트의 객체를 문자열 형태로 관리하는 데이터 형식
+	- 문자 형식으로 되어있는 JSON는 다시 객체 형식으로 변환 (parsing)
 */
