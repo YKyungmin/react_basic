@@ -34,7 +34,6 @@ export default function Youtube() {
 				setYoutube(json.items);
 			});
 	};
-
 	useEffect(() => {
 		fetchYoutube();
 	}, []);
@@ -50,7 +49,7 @@ export default function Youtube() {
 					return (
 						<article key={idx}>
 							<h2>{tit.length > 60 ? tit.substr(0, 60) + '...' : tit}</h2>
-							<p>{desc.length > 180 ? desc.substr(0, 180) + '...' : desc}</p>
+							<p>{desc.length > 100 ? desc.substr(0, 100) + '...' : desc}</p>
 							<span>{date.split('T')[0].split('-').join('.')}</span>
 							<div
 								className='pic'
@@ -68,7 +67,6 @@ export default function Youtube() {
 					);
 				})}
 			</Layout>
-
 			{IsModal && (
 				<Modal setIsModal={setIsModal}>
 					<iframe
