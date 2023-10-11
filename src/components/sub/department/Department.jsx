@@ -50,4 +50,21 @@ export default function Department() {
 	4.fetch문을 useEffect안쪽에서 호출하는 이유 
 	- 가상돔 생성은 리액트 기반의 스크립트가 처리해주면 외부 데이터를 가져오는 것은 WebAPI(브라우저)가 처리하시 때문에 컴포넌트가 실제 브라우저 상에 마운트가되고 브라우저가 작업 준비가 되야지만 feth 를 실행할 수 있기 때문에 
 	-useEffect컴포넌트가 마운트 되야지만 CSR방식으로 외부 데이터를 가져올 수 있음. 
+
+
+	컴포넌트 작성 순서는
+	import로 외부 모듈, 컴포넌트 불러오기 
+	
+	export default funciton 컴포넌트이름(){
+		필요시 hook 호출 ( hook 안에서 hook 호출 불가, 핸들러 안쪽에서 호출 불가 )
+
+		필요시 핸들러 함수 정의 
+
+		useEffect(()=>{
+			핸들러 함수 호출 (fetch, 이벤트연결)
+		},[])
+		
+
+		return JSX
+	}
 */
