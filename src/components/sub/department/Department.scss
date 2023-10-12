@@ -1,33 +1,51 @@
 .Department {
 	figure {
-		background-color: #f2f2f2;
+		background-color: orange;
 	}
 
 	.main {
+		width: 69vw;
+
+		margin: 100px auto;
 		display: flex;
-		width: 100%;
-		margin-bottom: 100px;
-		margin-top: 100px;
-		align-items: flex-start;
+		flex-wrap: wrap;
+		justify-content: space-between;
 
-		.h_1 {
-			font: 1.5rem;
-		}
-		.h_2 {
-			color: orange;
-			text-decoration: underline;
-		}
+		.left {
+			width: 35%;
+			padding: 5px;
 
-		.p_1 {
-			margin-left: 100px;
+			.h_1 {
+				word-break: break-all;
+				font-size: 25px;
+
+				.h_2 {
+					color: orange;
+					text-decoration: underline;
+				}
+			}
+		}
+		.rigth {
+			padding: 5px;
+
+			width: 60%;
+			height: 50vh;
+			.p_1,
+			.p_2 {
+				word-break: break-all;
+				font-size: 13px;
+				margin-bottom: 13px;
+			}
 		}
 	}
-
+	.line_1 {
+		border-top: 1px solid gray;
+		margin-bottom: 100px;
+	}
 	.mainbox {
-		border: solid 0.1px red;
 		width: 100%;
 		display: flex;
-		margin-bottom: 50px;
+		margin-bottom: 100px;
 		.textbox {
 			width: 25%;
 			height: 25vh;

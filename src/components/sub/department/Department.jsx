@@ -18,29 +18,49 @@ export default function Department() {
 
 	return (
 		<Layout title={'Department'}>
-			<div className='main'>
-				<h2 className='h_1'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
-					libero at itaque <span className='h_2'>Aperiam,</span> doloribus
-					accusantium.
-				</h2>
-				<p className='p_1'>
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-					totam illum iusto rem tenetur eligendi molestias repellendus, quod non
-					magni quam repudiandae id reprehenderit odit, tempore ipsam beatae qui
-					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur,
-					odio.
-					<br />
-					<br />
-					unde voluptates atque delectus, aliquam assumenda provident, maiores
-					vero vitae hic. Lorem ipsum dolor sit amet consectetur adipisicing
-					elit. Officiis totam illum iusto rem tenetur eligendi molestias
-					repellendus, quod non magni quam repudiandae id reprehenderit odit,
-					tempore ipsam beatae qui harum pariatur! Iusto sit fugiat labore ab
-					incidunt consequuntur, odio unde voluptates atque delectus, aliquam
-					assumenda provident, maiores vero vitae hic.
-				</p>
-			</div>
+			<section className='main'>
+				<div className='left'>
+					<h2 className='h_1'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Pariatur
+						libero at itaque <span className='h_2'>Aperia,</span> doloribus
+						accusantium.
+					</h2>
+				</div>
+				<div className='rigth'>
+					<p className='p_1'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+						totam illum iusto rem tenetur eligendi molestias repellendus, quod
+						non magni quam repudiandae id reprehenderit odit, tempore ipsam
+						beatae qui harum pariatur! Iusto sit fugiat labore ab incidunt
+						consequuntur, odio. unde voluptates atque delectus, aliquam
+						assumenda provident, maiores vero vitae hic. Lorem ipsum dolor sit
+						amet consectetur adipisicing elit. Officiis totam illum iusto rem
+						tenetur eligendi molestias repellendus, quod non magni quam
+						repudiandae id reprehenderit odit, tempore ipsam beatae qui harum
+						pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
+						unde voluptates atque delectus, aliquam assumenda provident, maiores
+						vero vitae hic.
+					</p>
+
+					<p className='p_2'>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+						totam illum iusto rem tenetur eligendi molestias repellendus, quod
+						non magni quam repudiandae id reprehenderit odit, tempore ipsam
+						beatae qui harum pariatur! Iusto sit fugiat labore ab incidunt
+						consequuntur, odio. unde voluptates atque delectus, aliquam
+						assumenda provident, maiores vero vitae hic. Lorem ipsum dolor sit
+						amet consectetur adipisicing elit. Officiis totam illum iusto rem
+						tenetur eligendi molestias repellendus, quod non magni quam
+						repudiandae id reprehenderit odit, tempore ipsam beatae qui harum
+						pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
+						unde voluptates atque delectus, aliquam assumenda provident, maiores
+						vero vitae hic.
+					</p>
+				</div>
+			</section>
+
+			{/* 구분선 */}
+			<div className='line_1'></div>
 
 			<div className='mainbox'>
 				<div className='textbox'>

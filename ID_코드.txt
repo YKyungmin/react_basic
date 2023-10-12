@@ -33,6 +33,6 @@
 
 		const api_key = 'AIzaSyDJt4CHCpOKxhmt--qva0-DwF-aS2nbwSc';
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
-		const pid = 'PLn_cQPHMkz8a5gvHHGrg3Jui7kNHR_RTt';
+		const pid = 'PLn_cQPHMkz8a2SAPIdpW3_2696iH0B13r';
 
 		
