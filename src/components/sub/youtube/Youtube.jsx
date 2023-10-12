@@ -1,11 +1,10 @@
 import Layout from '../../common/layout/Layout';
-import Modal from '../../common/modal/Modal';
 import './Youtube.scss';
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+
 export default function Youtube() {
 	const [Youtube, setYoutube] = useState([]);
-	const [IsModal, setIsModal] = useState(false);
-	const [Index, setIndex] = useState(0);
 
 	//async await로 동기화 코드를 좀더 깔끔하게 정리
 	const fetchYoutube = async () => {
@@ -17,6 +16,7 @@ export default function Youtube() {
 
 		const data = await fetch(resultURL);
 		const json = await data.json();
+		console.log(json.items);
 		setYoutube(json.items);
 	};
 
@@ -43,31 +43,28 @@ export default function Youtube() {
 								<span>{date.split('T')[0].split('-').join('.')}</span>
 							</div>
 
-							<div
-								className='picBox'
-								onClick={() => {
-									setIndex(idx);
-									setIsModal(true);
-								}}
-							>
-								<img
-									src={data.snippet.thumbnails.standard.url}
-									alt={data.title}
-								/>
+							<div className='picBox'>
+								{/* 썸네일 링크 클릭시 특정유튜브 객체 하나의 정보값을 받기 위해서 유튜브 객체의 id값을 params로 전달 */}
+								<Link to={`/detail/${data.id}`}>
+									<img
+										src={data.snippet.thumbnails.standard.url}
+										alt={data.title}
+									/>
+								</Link>
 							</div>
 						</article>
 					);
 				})}
 			</Layout>
 
-			{IsModal && (
+			{/* {IsModal && (
 				<Modal setIsModal={setIsModal}>
 					<iframe
 						src={`https://www.youtube.com/embed/${Youtube[Index].snippet.resourceId.videoId}`}
 						title='youtube'
 					></iframe>
 				</Modal>
-			)}
+			)} */}
 		</>
 	);
 }

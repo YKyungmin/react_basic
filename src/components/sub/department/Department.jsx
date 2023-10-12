@@ -44,47 +44,55 @@ export default function Department() {
 
 			<div className='mainbox'>
 				<div className='textbox'>
-					<h3>
-						Lorem ipsum <br />
-						dolor sit amet.
-					</h3>
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-						voluptas porro repellat rem nemo deleniti.
-					</p>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
+					</div>
 				</div>
 
 				<div className='textbox'>
-					<h3>
-						Lorem ipsum <br />
-						dolor sit amet.
-					</h3>
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-						voluptas porro repellat rem nemo deleniti.
-					</p>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
+					</div>
 				</div>
 
 				<div className='textbox'>
-					<h3>
-						Lorem ipsum <br />
-						dolor sit amet.
-					</h3>
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-						voluptas porro repellat rem nemo deleniti.
-					</p>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
+					</div>
 				</div>
 
 				<div className='textbox'>
-					<h3>
-						Lorem ipsum <br />
-						dolor sit amet.
-					</h3>
-					<p>
-						Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
-						voluptas porro repellat rem nemo deleniti.
-					</p>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
+					</div>
 				</div>
 			</div>
 
