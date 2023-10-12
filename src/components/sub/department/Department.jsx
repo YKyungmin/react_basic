@@ -28,17 +28,17 @@ export default function Department() {
 					Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
 					totam illum iusto rem tenetur eligendi molestias repellendus, quod non
 					magni quam repudiandae id reprehenderit odit, tempore ipsam beatae qui
-					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
-					unde voluptates atque delectus, aliquam assumenda provident, maiores
-					vero vitae hic.
+					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur,
+					odio.
 					<br />
 					<br />
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
-					totam illum iusto rem tenetur eligendi molestias repellendus, quod non
-					magni quam repudiandae id reprehenderit odit, tempore ipsam beatae qui
-					harum pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
 					unde voluptates atque delectus, aliquam assumenda provident, maiores
-					vero vitae hic.
+					vero vitae hic. Lorem ipsum dolor sit amet consectetur adipisicing
+					elit. Officiis totam illum iusto rem tenetur eligendi molestias
+					repellendus, quod non magni quam repudiandae id reprehenderit odit,
+					tempore ipsam beatae qui harum pariatur! Iusto sit fugiat labore ab
+					incidunt consequuntur, odio unde voluptates atque delectus, aliquam
+					assumenda provident, maiores vero vitae hic.
 				</p>
 			</div>
 
