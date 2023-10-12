@@ -11,16 +11,15 @@ export default function Gallery() {
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const [IsModal, setIsModal] = useState(false);
-	const my_id = '199261363@N05';
+	const my_id = '164021883@N04';
 
 	//처음 마운트 데이터 호출 함수
 	const fetchData = async (opt) => {
 		let url = '';
-		const api_key = '1540091ae2cb6339ff9bbee036caae0e';
+		const api_key = '2a1a0aebb34012a99c23e13b49175343';
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';
-
 		const num = 50;
 
 		if (opt.type === 'interest') {
@@ -166,3 +165,13 @@ export default function Gallery() {
 		</>
 	);
 }
+
+/*
+	클릭한 버튼을 또 클릭했을때 같은 데이터를 불필요하게 또다시 fetching요청하지 않도록
+	클릭한 버튼에 on이 붙어있을때 함수 호출을 강제 중지
+
+	현재 출력되는 갤러리 방식이 User type 갤러리일때 같은 사용자의 갤러리가 보이는 형태이므로
+	사용자 아이디를 클릭하게되면 같은 데이터 요청을 보내게됨
+	--- 사용자 타입의 갤러리를 호출할때마다 IsUser state값을 true로 변경해서 
+	--- 이벤트가 발생할때마다 IsUser값이 true 사용자 아이디 클릭 이벤트 핸들러 제거
+*/
