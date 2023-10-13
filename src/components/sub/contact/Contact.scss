@@ -83,22 +83,19 @@
 			}
 
 			.btnSet {
-				width: 80%;
+				width: 95%;
 				display: flex;
-				justify-content: end;
-				gap: 50%;
 				margin-top: 20px;
+				justify-content: flex-end;
 
 				input {
-					padding: 3px;
-					margin-bottom: 30px;
-					display: block;
-					background: transparent;
-					border-radius: 40%;
-
-					border: 1px solid #555;
+					width: 150px;
+					border: none;
+					background: #555;
+					margin-right: 25px;
+					color: #fff;
+					cursor: pointer;
 					font: 1rem/40px 'arial';
-					color: #555;
 					text-align: center;
 				}
 			}
