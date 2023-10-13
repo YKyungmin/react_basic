@@ -233,6 +233,8 @@ export default function Contact() {
 
 			<div id='mailBox'>
 				<form ref={form} onSubmit={sendEmail}>
+					<div className='line_1'></div>
+
 					<h1>ASK</h1>
 					<div className='upper'>
 						<span>
@@ -257,6 +259,7 @@ export default function Contact() {
 						<input type='reset' value='Cancel' />
 						<input type='submit' value='Send' />
 					</div>
+					<div className='line_1'></div>
 				</form>
 			</div>
 		</Layout>
