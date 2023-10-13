@@ -11,12 +11,12 @@ export default function Gallery() {
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const [IsModal, setIsModal] = useState(false);
-	const my_id = '164021883@N04';
 
+	const my_id = '199261363@N05';
 	//처음 마운트 데이터 호출 함수
 	const fetchData = async (opt) => {
 		let url = '';
-		const api_key = '2a1a0aebb34012a99c23e13b49175343';
+		const api_key = '1540091ae2cb6339ff9bbee036caae0e';
 		const method_interest = 'flickr.interestingness.getList';
 		const method_user = 'flickr.people.getPhotos';
 		const method_search = 'flickr.photos.search';

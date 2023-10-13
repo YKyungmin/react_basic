@@ -157,32 +157,46 @@ export default function Contact() {
 
 	return (
 		<Layout title={'Contact'}>
-			<div id='mailBox'>
-				<form ref={form} onSubmit={sendEmail}>
-					<div className='upper'>
-						<span>
-							<label>Name</label>
-							<input type='text' name='user_name' className='nameEl' />
-						</span>
-
-						<span>
-							<label>Email</label>
-							<input type='email' name='user_email' className='emailEl' />
-						</span>
+			<div className='mainbox'>
+				<div className='textbox'>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
 					</div>
+				</div>
 
-					<div className='lower'>
-						<label>Message</label>
-						<textarea name='message' className='msgEl' />
+				<div className='textbox'>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
 					</div>
+				</div>
 
-					<div className='btnSet'>
-						<input type='reset' value='Cancel' />
-						<input type='submit' value='Send' />
+				<div className='textbox'>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
 					</div>
-				</form>
+				</div>
 			</div>
-
 			<div id='mapBox'>
 				<div className='btnSet'>
 					<button onClick={() => setTraffic(!Traffic)}>
@@ -215,6 +229,35 @@ export default function Contact() {
 						</li>
 					))}
 				</ul>
+			</div>
+
+			<div id='mailBox'>
+				<form ref={form} onSubmit={sendEmail}>
+					<h1>ASK</h1>
+					<div className='upper'>
+						<span>
+							<label>Name</label>
+							<input type='text' name='user_name' className='nameEl' />
+						</span>
+
+						<span>
+							<label>Email</label>
+							<input type='email' name='user_email' className='emailEl' />
+						</span>
+					</div>
+
+					<div className='lower'>
+						<span>
+							<label>Message</label>
+							<textarea name='message' className='msgEl' />
+						</span>
+					</div>
+
+					<div className='btnSet'>
+						<input type='reset' value='Cancel' />
+						<input type='submit' value='Send' />
+					</div>
+				</form>
 			</div>
 		</Layout>
 	);

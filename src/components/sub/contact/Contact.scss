@@ -5,9 +5,11 @@
 
 	.content {
 		width: 100%;
+		background: #f7f7f7;
 
 		h1 {
 			text-align: center;
+			padding-top: 30px;
 		}
 		#mailBox {
 			border: 1px solid red;
@@ -18,30 +20,34 @@
 			.upper {
 				width: 100%;
 				display: flex;
+				flex-direction: column; /* 요소를 세로로 배치 */
 				margin-bottom: 50px;
 				justify-content: space-between;
 
 				span {
-					width: 48%;
+					width: 100%;
+					padding-bottom: 10px;
 
 					label {
 						font: bold 1rem/1 'arial';
 						color: #555;
-						margin-right: 20px;
+						margin-right: 5px;
+						margin-left: 50px;
 						position: relative;
-						top: 20px;
 					}
 					input[type='text'],
 					input[type='email'] {
+						width: 75%;
 						border: none;
 						padding: 10px 20px;
 						border-bottom: 1px solid #555;
 						margin-right: 50px;
+						margin-left: 50px;
 						outline: none;
 						transition: 0.5s;
 
 						&:focus {
-							background: lightcyan;
+							background: rgba(171, 181, 191, 0.577);
 						}
 					}
 				}
@@ -51,35 +57,37 @@
 				margin-bottom: 10px;
 
 				label {
-					display: block;
-					margin-bottom: 5px;
 					font: bold 1rem/1 'arial';
 					color: #555;
+					margin-right: 5px;
+					margin-left: 50px;
+					position: relative;
 				}
 				textarea {
-					width: 100%;
-					padding: 10px;
+					width: 75%;
 					border: none;
+					padding: 10px 20px;
 					border-bottom: 1px solid #555;
-					margin-right: 50px;
-					resize: none;
+					margin-left: 30px;
 					outline: none;
 					transition: 0.5s;
+
 					&:focus {
-						background: lightcyan;
+						background: rgba(171, 181, 191, 0.577);
 					}
 				}
 			}
 
 			.btnSet {
-				width: 100%;
-				padding-right: 20px;
+				width: 80%;
 				display: flex;
-				gap: 50px;
+				justify-content: end;
+				gap: 50%;
 
 				input {
+					padding: 3px;
+					margin-bottom: 30px;
 					display: block;
-					height: 40px;
 					background: transparent;
 					border: 1px solid #666;
 					font: 1rem/40px 'arial';
@@ -128,6 +136,38 @@
 
 				li.on {
 					color: hotpink;
+				}
+			}
+		}
+	}
+	.mainbox {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		margin-bottom: 100px;
+
+		.textbox {
+			width: 17%;
+			height: 25vh;
+			padding: 20px;
+			margin: 30px;
+			transform: scale(1.1);
+
+			&:hover {
+				transform: scale(1.2);
+				box-shadow: 3px 3px 3px 3px gray;
+			}
+
+			.in_t_box {
+				border-top: 0.3px solid black;
+
+				transition: 1s linear;
+				padding: 10px;
+
+				p {
+					padding-top: 10px;
+					font-size: 12px;
+					color: gray;
 				}
 			}
 		}
