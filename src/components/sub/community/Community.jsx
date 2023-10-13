@@ -3,11 +3,18 @@ import './Community.scss';
 import { useRef, useState } from 'react';
 
 export default function Community() {
+	const getLocalData = () => {
+		const data = localStorage.getItem('post');
+		if (data) return JSON.parse(data);
+		else return [];
+	};
 	const refInput = useRef(null);
 	const refTextarea = useRef(null);
 	const refEditInput = useRef(null);
 	const refEditTextarea = useRef(null);
-	const [Posts, setPosts] = useState([]);
+	// 해당 컴포넌트가 처음 마운트 시에는 로컬 저장소에 값이 없기 때문에 빈 배열 리턴
+	// 저장소에 값이 있으면 해당값을 parsing된 데이터가 있는 배열값을 리턴
+	const [Posts, setPosts] = useState([getLocalData()]);
 	const [Allowed, setAllowed] = useState(true);
 	console.log(Posts);
 
