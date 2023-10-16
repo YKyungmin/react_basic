@@ -5,6 +5,9 @@
 	.content {
 		h1 {
 			margin-bottom: 50px;
+			padding-bottom: 30px;
+			text-align: center;
+			border-bottom: 2px solid gray;
 		}
 
 		article {
@@ -57,7 +60,7 @@
 
 				img {
 					width: 100%;
-					height: 90%;
+					height: 100%;
 					object-fit: cover;
 				}
 			}

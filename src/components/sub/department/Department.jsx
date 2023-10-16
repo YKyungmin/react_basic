@@ -16,6 +16,7 @@ export default function Department() {
 		const wrap = refSliderWrap.current;
 		wrap.prepend(wrap.lastElementChild);
 	};
+
 	useEffect(() => {
 		fetch(`${path}/DB/department.json`)
 			.then((data) => data.json()) //fetch문에 대한 응답 성공시
@@ -29,12 +30,14 @@ export default function Department() {
 	return (
 		<Layout title={'Department'}>
 			<div className='sliderBox'>
-				<button className='prev' onClick={prev}>
-					prev
-				</button>
-				<button className='next' onClick={next}>
-					next
-				</button>
+				<div className='but_box'>
+					<button className='prev' onClick={prev}>
+						prev
+					</button>
+					<button className='next' onClick={next}>
+						next
+					</button>
+				</div>
 
 				<section className='sliderWrap' ref={refSliderWrap}>
 					<article>1</article>

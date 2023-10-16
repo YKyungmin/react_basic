@@ -90,13 +90,21 @@
 
 				input {
 					width: 150px;
-					border: none;
+					border: 1px solid #555;
+
 					background: #555;
 					margin-right: 25px;
 					color: #fff;
 					cursor: pointer;
 					font: 1rem/40px 'arial';
 					text-align: center;
+					transition: 0.3s;
+
+					&:hover {
+						border: 1px solid #111;
+						background: #f2f2f2;
+						color: #111;
+					}
 				}
 			}
 		}
@@ -170,6 +178,7 @@
 			padding: 20px;
 			margin: 30px;
 			transform: scale(1.1);
+			transition: 0.3s;
 
 			&:hover {
 				transform: scale(1.2);
