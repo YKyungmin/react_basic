@@ -236,6 +236,12 @@ export default function Contact() {
 					<div className='line_1'></div>
 
 					<h1>ASK</h1>
+					<p className='p_3'>
+						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
+						fuga iste velit similique totam, omnis adipisci maiores ipsa quidem
+						quae. Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+						Impedit, ipsam.
+					</p>
 					<div className='upper'>
 						<span>
 							<label>Name</label>
