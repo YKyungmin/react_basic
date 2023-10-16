@@ -11,11 +11,15 @@ export default function Members() {
 		gender: false,
 		interests: false,
 		edu: '',
+		comments: '',
 	};
 	const [Val, setVal] = useState(initVal);
 	const [Errs, setErrs] = useState({});
 
-	console.log(Errs);
+	const resetForm = (e) => {
+		e.preventDefault();
+		setVal(initVal);
+	};
 
 	const handleChange = (e) => {
 		const { name, value } = e.target;
@@ -57,7 +61,7 @@ export default function Members() {
 
 		//비밀번호 재확인 인증
 		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
-			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요.';
+			errs.pwd2 = '비밀번호를 같게 입력하세요.';
 		}
 
 		//이메일 인증
@@ -89,11 +93,16 @@ export default function Members() {
 		if (!value.edu) {
 			errs.edu = '학력을 선택하세요.';
 		}
+		//남기는말 인증
+		if (value.comments.length < 10) {
+			errs.comments = '남기는말은 10글자 이상 입력하세요.';
+		}
 		return errs;
 	};
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		if (Object.keys(check(Val)).length === 0) {
 			alert('인증통과');
 		} else {
@@ -111,7 +120,7 @@ export default function Members() {
 							{/* userid */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userid'>userid</label>
+									<label htmlFor='userid'>UserId</label>
 								</th>
 								<td>
 									<input
@@ -128,7 +137,7 @@ export default function Members() {
 							{/* password */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd1'>password</label>
+									<label htmlFor='pwd1'>Password</label>
 								</th>
 								<td>
 									<input
@@ -145,7 +154,7 @@ export default function Members() {
 							{/* re password */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd2'>re-password</label>
+									<label htmlFor='pwd2'>re-Password</label>
 								</th>
 								<td>
 									<input
@@ -162,7 +171,7 @@ export default function Members() {
 							{/* email */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='email'>e-mail</label>
+									<label htmlFor='email'>E-mail</label>
 								</th>
 								<td>
 									<input
@@ -180,7 +189,7 @@ export default function Members() {
 							<tr>
 								<th>gender</th>
 								<td>
-									<label htmlFor='female'>female</label>
+									<label htmlFor='female'>Female</label>
 									<input
 										type='radio'
 										name='gender'
@@ -188,7 +197,7 @@ export default function Members() {
 										onChange={handleRadio}
 									/>
 
-									<label htmlFor='male'>male</label>
+									<label htmlFor='male'>Male</label>
 									<input
 										type='radio'
 										name='gender'
@@ -203,7 +212,7 @@ export default function Members() {
 							<tr>
 								<th>interests</th>
 								<td>
-									<label htmlFor='sports'>sports</label>
+									<label htmlFor='sports'>Sports</label>
 									<input
 										type='checkbox'
 										id='sports'
@@ -211,7 +220,7 @@ export default function Members() {
 										onChange={handleCheck}
 									/>
 
-									<label htmlFor='game'>game</label>
+									<label htmlFor='game'>Game</label>
 									<input
 										type='checkbox'
 										id='game'
@@ -219,7 +228,7 @@ export default function Members() {
 										onChange={handleCheck}
 									/>
 
-									<label htmlFor='music'>music</label>
+									<label htmlFor='music'>Music</label>
 									<input
 										type='checkbox'
 										id='music'
@@ -247,10 +256,28 @@ export default function Members() {
 								</td>
 							</tr>
 
+							{/* comments */}
+							<tr>
+								<th>
+									<label htmlFor='comments'>Comments</label>
+								</th>
+								<td>
+									<textarea
+										name='comments'
+										id=''
+										cols='30'
+										rows='3'
+										value={Val.comments}
+										onChange={handleChange}
+									></textarea>
+									{Errs.comments && <p>{Errs.comments}</p>}
+								</td>
+							</tr>
+
 							{/* btnSet */}
 							<tr>
 								<th colSpan='2'>
-									<input type='reset' value='cancel' />
+									<input type='reset' value='cancel' onClick={resetForm} />
 									<input type='submit' value='send' />
 								</th>
 							</tr>
