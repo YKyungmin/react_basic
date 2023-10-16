@@ -1,6 +1,6 @@
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 export default function Members() {
 	const initVal = {
@@ -13,12 +13,25 @@ export default function Members() {
 		edu: '',
 		comments: '',
 	};
+	const refCheckGroup = useRef(null);
+	const refRadioGroup = useRef(null);
 	const [Val, setVal] = useState(initVal);
 	const [Errs, setErrs] = useState({});
 
 	const resetForm = (e) => {
 		e.preventDefault();
 		setVal(initVal);
+		/*
+		const checks = refCheckGroup.current.querySelectorAll('input');
+		const radios = refRadioGroup.current.querySelectorAll('input');
+		checks.forEach((input) => (input.checked = false));
+		radios.forEach((input) => (input.checked = false));
+    */
+		[refCheckGroup, refRadioGroup].forEach((el) =>
+			el.current
+				.querySelectorAll('input')
+				.forEach((input) => (input.checked = false))
+		);
 	};
 
 	const handleChange = (e) => {
@@ -61,7 +74,7 @@ export default function Members() {
 
 		//비밀번호 재확인 인증
 		if (value.pwd1 !== value.pwd2 || !value.pwd2) {
-			errs.pwd2 = '비밀번호를 같게 입력하세요.';
+			errs.pwd2 = '2개의 비밀번호를 같게 입력하세요.';
 		}
 
 		//이메일 인증
@@ -120,7 +133,7 @@ export default function Members() {
 							{/* userid */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userid'>UserId</label>
+									<label htmlFor='userid'>User Id</label>
 								</th>
 								<td>
 									<input
@@ -154,7 +167,7 @@ export default function Members() {
 							{/* re password */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd2'>re-Password</label>
+									<label htmlFor='pwd2'>Re-Password</label>
 								</th>
 								<td>
 									<input
@@ -187,54 +200,56 @@ export default function Members() {
 
 							{/* gender */}
 							<tr>
-								<th>gender</th>
-								<td>
-									<label htmlFor='female'>Female</label>
+								<th>Gender</th>
+								<td ref={refRadioGroup}>
 									<input
 										type='radio'
 										name='gender'
 										id='female'
 										onChange={handleRadio}
 									/>
+									<label htmlFor='female'>Female</label>
 
-									<label htmlFor='male'>Male</label>
 									<input
 										type='radio'
 										name='gender'
 										id='male'
 										onChange={handleRadio}
 									/>
+									<label htmlFor='male'>Male</label>
+
 									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
 
 							{/* interests */}
 							<tr>
-								<th>interests</th>
-								<td>
-									<label htmlFor='sports'>Sports</label>
+								<th>Interests</th>
+								<td ref={refCheckGroup}>
 									<input
 										type='checkbox'
 										id='sports'
 										name='interests'
 										onChange={handleCheck}
 									/>
+									<label htmlFor='sports'>Sports</label>
 
-									<label htmlFor='game'>Game</label>
 									<input
 										type='checkbox'
 										id='game'
 										name='interests'
 										onChange={handleCheck}
 									/>
+									<label htmlFor='game'>Game</label>
 
-									<label htmlFor='music'>Music</label>
 									<input
 										type='checkbox'
 										id='music'
 										name='interests'
 										onChange={handleCheck}
 									/>
+									<label htmlFor='music'>Music</label>
+
 									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>

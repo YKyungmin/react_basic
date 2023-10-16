@@ -24,6 +24,11 @@
 						align-items: center;
 						margin: 0px 10px;
 						cursor: pointer;
+						transition: 0.2s;
+
+						&:hover {
+							border: 1.5px solid #111;
+						}
 					}
 				}
 			}
@@ -32,6 +37,9 @@
 				border-bottom: 1px solid #bbb;
 				border-left: 1px solid #bbb;
 				padding: 15px 30px;
+				label {
+					padding-right: 10px;
+				}
 
 				input[type='text'],
 				input[type='password'] {
