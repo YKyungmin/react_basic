@@ -96,6 +96,7 @@ export default function Community() {
 	return (
 		<Layout title={'Community'}>
 			<div className='inputBox'>
+				<h2>Comment</h2>
 				<input ref={refInput} type='text' placeholder='제목을 입력하세요.' />
 				<br />
 				<textarea
@@ -162,9 +163,9 @@ export default function Community() {
 							<article key={idx}>
 								<div className='txt'>
 									<h2>{post.title}</h2>
-									<p>{post.content}</p>
-									<p>{`글 작성일 : ${year}-${month}-${date}`}</p>
-									<p>{`글 작성시간 : ${hour}:${min}:${sec}`}</p>
+									<p className='txt_content'>{post.content}</p>
+									<p className='txt_date '>{`Date : ${year} / ${month} / ${date}`}</p>
+									<p className='txt_time '>{`Time : ${hour}:${min}:${sec}`}</p>
 								</div>
 
 								<nav className='btnSet'>

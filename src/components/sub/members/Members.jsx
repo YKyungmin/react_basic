@@ -15,6 +15,7 @@ export default function Members() {
 	};
 	const refCheckGroup = useRef(null);
 	const refRadioGroup = useRef(null);
+	const refSelGroup = useRef(null);
 	const [Val, setVal] = useState(initVal);
 	const [Errs, setErrs] = useState({});
 
@@ -32,6 +33,7 @@ export default function Members() {
 				.querySelectorAll('input')
 				.forEach((input) => (input.checked = false))
 		);
+		refSelGroup.current.value = '';
 	};
 
 	const handleChange = (e) => {
@@ -133,7 +135,7 @@ export default function Members() {
 							{/* userid */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='userid'>User Id</label>
+									<label htmlFor='userid'>userid</label>
 								</th>
 								<td>
 									<input
@@ -150,7 +152,7 @@ export default function Members() {
 							{/* password */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd1'>Password</label>
+									<label htmlFor='pwd1'>password</label>
 								</th>
 								<td>
 									<input
@@ -167,7 +169,7 @@ export default function Members() {
 							{/* re password */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='pwd2'>Re-Password</label>
+									<label htmlFor='pwd2'>re-password</label>
 								</th>
 								<td>
 									<input
@@ -184,7 +186,7 @@ export default function Members() {
 							{/* email */}
 							<tr>
 								<th scope='row'>
-									<label htmlFor='email'>E-mail</label>
+									<label htmlFor='email'>e-mail</label>
 								</th>
 								<td>
 									<input
@@ -200,56 +202,54 @@ export default function Members() {
 
 							{/* gender */}
 							<tr>
-								<th>Gender</th>
+								<th>gender</th>
 								<td ref={refRadioGroup}>
+									<label htmlFor='female'>female</label>
 									<input
 										type='radio'
 										name='gender'
 										id='female'
 										onChange={handleRadio}
 									/>
-									<label htmlFor='female'>Female</label>
 
+									<label htmlFor='male'>male</label>
 									<input
 										type='radio'
 										name='gender'
 										id='male'
 										onChange={handleRadio}
 									/>
-									<label htmlFor='male'>Male</label>
-
 									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
 
 							{/* interests */}
 							<tr>
-								<th>Interests</th>
+								<th>interests</th>
 								<td ref={refCheckGroup}>
+									<label htmlFor='sports'>sports</label>
 									<input
 										type='checkbox'
 										id='sports'
 										name='interests'
 										onChange={handleCheck}
 									/>
-									<label htmlFor='sports'>Sports</label>
 
+									<label htmlFor='game'>game</label>
 									<input
 										type='checkbox'
 										id='game'
 										name='interests'
 										onChange={handleCheck}
 									/>
-									<label htmlFor='game'>Game</label>
 
+									<label htmlFor='music'>music</label>
 									<input
 										type='checkbox'
 										id='music'
 										name='interests'
 										onChange={handleCheck}
 									/>
-									<label htmlFor='music'>Music</label>
-
 									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>
@@ -260,7 +260,12 @@ export default function Members() {
 									<label htmlFor='edu'>Education</label>
 								</th>
 								<td>
-									<select name='edu' id='edu' onChange={handleChange}>
+									<select
+										name='edu'
+										id='edu'
+										onChange={handleChange}
+										ref={refSelGroup}
+									>
 										<option value=''>최종학력 선택하세요</option>
 										<option value='elementary-school'>초등학교 졸업</option>
 										<option value='middle-school'>중학교 졸업</option>
@@ -274,7 +279,7 @@ export default function Members() {
 							{/* comments */}
 							<tr>
 								<th>
-									<label htmlFor='comments'>Comments</label>
+									<label htmlFor='comments'>comments</label>
 								</th>
 								<td>
 									<textarea
