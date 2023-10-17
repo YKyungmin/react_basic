@@ -1,4 +1,7 @@
 .Gallery {
+	h1 {
+		text-align: center;
+	}
 	.searchBox {
 		width: 100%;
 		text-align: center;
@@ -79,6 +82,34 @@
 						font-size: 0.8rem;
 					}
 				}
+			}
+		}
+	}
+}
+
+.laptop {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 32%;
+			}
+		}
+	}
+}
+.tablet {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 48%;
+			}
+		}
+	}
+}
+.mobile {
+	.Gallery {
+		.picFrame {
+			article {
+				width: 100%;
 			}
 		}
 	}
