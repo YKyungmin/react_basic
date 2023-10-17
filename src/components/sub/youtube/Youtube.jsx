@@ -9,7 +9,7 @@ export default function Youtube() {
 
 	//async await로 동기화 코드를 좀더 깔끔하게 정리
 	const fetchYoutube = async () => {
-		const api_key = 'AIzaSyDJt4CHCpOKxhmt--qva0-DwF-aS2nbwSc';
+		const api_key = process.env.REACT_APP_YOUTUBE_API;
 		const baseURL = 'https://www.googleapis.com/youtube/v3/playlistItems';
 		const pid = 'PLn_cQPHMkz8a2SAPIdpW3_2696iH0B13r';
 		const num = 10;

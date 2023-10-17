@@ -1,6 +1,8 @@
 import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
 
+import { FaBars } from 'react-icons/fa6';
+
 export default function Header({ isMain }) {
 	return (
 		<header className='header'>
@@ -40,6 +42,8 @@ export default function Header({ isMain }) {
 					</NavLink>
 				</li>
 			</ul>
+
+			<FaBars fontSize={30} />
 		</header>
 	);
 }

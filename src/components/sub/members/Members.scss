@@ -24,11 +24,6 @@
 						align-items: center;
 						margin: 0px 10px;
 						cursor: pointer;
-						transition: 0.2s;
-
-						&:hover {
-							border: 1.5px solid #111;
-						}
 					}
 				}
 			}
@@ -37,20 +32,25 @@
 				border-bottom: 1px solid #bbb;
 				border-left: 1px solid #bbb;
 				padding: 15px 30px;
-				label {
-					padding-right: 10px;
-				}
 
 				input[type='text'],
-				input[type='password'] {
+				input[type='password'],
+				textarea,
+				select {
 					width: 40%;
 					border: 1px solid #aaa;
 					padding: 6px 10px;
 					background: #f3ffff;
+					resize: none;
+				}
+				input[type='checkbox'],
+				input[type='radio'] {
+					margin-right: 20px;
+					margin-left: 5px;
 				}
 				p {
 					font: 0.8rem/1.2 '돋움';
-					color: red;
+					color: hotpink;
 					margin-top: 5px;
 				}
 			}
