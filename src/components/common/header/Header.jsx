@@ -1,7 +1,6 @@
 import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
-
-import { FaBars } from 'react-icons/fa6';
+import { FaBars } from 'react-icons/fa';
 
 export default function Header({ isMain }) {
 	return (
@@ -43,7 +42,7 @@ export default function Header({ isMain }) {
 				</li>
 			</ul>
 
-			<FaBars fontSize={30} />
+			<FaBars className='bars' fontSize={22} color={'#333'} />
 		</header>
 	);
 }

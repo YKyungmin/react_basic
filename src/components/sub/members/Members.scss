@@ -24,6 +24,11 @@
 						align-items: center;
 						margin: 0px 10px;
 						cursor: pointer;
+						transition: 0.2s;
+
+						&:hover {
+							border: 1.5px solid #111;
+						}
 					}
 				}
 			}
@@ -32,26 +37,73 @@
 				border-bottom: 1px solid #bbb;
 				border-left: 1px solid #bbb;
 				padding: 15px 30px;
+				label {
+					padding-right: 10px;
+				}
 
 				input[type='text'],
-				input[type='password'],
-				textarea,
-				select {
+				input[type='password'] {
 					width: 40%;
 					border: 1px solid #aaa;
 					padding: 6px 10px;
 					background: #f3ffff;
-					resize: none;
-				}
-				input[type='checkbox'],
-				input[type='radio'] {
-					margin-right: 20px;
-					margin-left: 5px;
 				}
 				p {
 					font: 0.8rem/1.2 '돋움';
-					color: hotpink;
+					color: red;
 					margin-top: 5px;
+				}
+			}
+		}
+	}
+}
+
+//tablet mediaquery
+.tablet,
+.mobile {
+	.Members {
+		.content {
+			table {
+				td {
+					input[type='text'],
+					input[type='password'],
+					textarea,
+					select {
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+
+//tablet mediaquery
+.mobile {
+	.Members {
+		.content {
+			table {
+				th {
+					display: none;
+					&:last-child {
+						display: block;
+						width: 100%;
+
+						input {
+							width: 40%;
+						}
+					}
+				}
+				td {
+					width: 100%;
+					border-left: none;
+					padding: 20px 0px;
+
+					input[type='text'],
+					input[type='password'],
+					textarea,
+					select {
+						width: 100%;
+					}
 				}
 			}
 		}

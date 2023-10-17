@@ -102,7 +102,7 @@ export default function Gallery() {
 							type='text'
 							placeholder='검색어를 입력하세요'
 						/>
-						<button>검색</button>
+						<button className='se_bt'>검색</button>
 					</form>
 				</div>
 
