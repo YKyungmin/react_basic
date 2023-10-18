@@ -15,14 +15,14 @@ import { useEffect } from 'react';
 import { fetchYoutube } from './components/redux/youtubeSlice';
 import { fetchFlickr } from './components/redux/flickrSlice';
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
 function App() {
 	const dispatch = useDispatch();
-	const { isOpen } = useSelector((store) => store.menu);
+
 	useEffect(() => {
 		dispatch(fetchYoutube());
-		dispatch(fetchFlickr({ type: 'user', id: '199261363@N05' }));
+		dispatch(fetchFlickr({ type: 'user', id: '164021883@N04' }));
 	}, []);
 
 	return (
@@ -43,7 +43,7 @@ function App() {
 			<Route path='/contact' component={Contact} />
 			<Route path='/community' component={Community} />
 			<Route path='/detail/:id' component={Detail} />
-			{isOpen && <Menu />}
+			<Menu />
 		</main>
 	);
 }
