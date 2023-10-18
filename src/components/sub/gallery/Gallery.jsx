@@ -4,16 +4,17 @@ import './Gallery.scss';
 import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFlickr } from '../../redux/flickrslice';
+import { fetchFlickr } from '../../redux/flickrSlice';
+import { open } from '../../redux/modalSilce';
 
 export default function Gallery() {
 	const dispatch = useDispatch();
 	const Pics = useSelector((store) => store.flickr.data);
+	const IsModal = useSelector((store) => store.modal.isOpen);
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
-	const [IsModal, setIsModal] = useState(false);
 	const my_id = '199261363@N05';
 
 	//submit이벤트 발생시 실행할 함수
@@ -96,7 +97,7 @@ export default function Gallery() {
 										alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
 										onClick={(e) => {
 											setActiveURL(e.target.getAttribute('alt'));
-											setIsModal(true);
+											dispatch(open());
 										}}
 									/>
 								</div>
