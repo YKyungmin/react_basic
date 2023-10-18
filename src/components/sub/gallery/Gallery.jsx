@@ -1,44 +1,22 @@
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
+import Masonry from 'react-masonry-component';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchFlickr } from '../../redux/flickrslice';
 
 export default function Gallery() {
+	const dispatch = useDispatch();
+	const Pics = useSelector((store) => store.flickr.data);
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
-	const [Pics, setPics] = useState([]);
 	const [ActiveURL, setActiveURL] = useState('');
 	const [IsUser, setIsUser] = useState(true);
 	const [IsModal, setIsModal] = useState(false);
 	const my_id = '199261363@N05';
 
-	const fetchData = async (opt) => {
-		let url = '';
-		const api_key = '1540091ae2cb6339ff9bbee036caae0e';
-		const method_interest = 'flickr.interestingness.getList';
-		const method_user = 'flickr.people.getPhotos';
-		const method_search = 'flickr.photos.search';
-		const num = 6;
-
-		if (opt.type === 'interest') {
-			url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;
-		}
-		if (opt.type === 'user') {
-			url = `https://www.flickr.com/services/rest/?method=${method_user}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&user_id=${opt.id}`;
-		}
-		if (opt.type === 'search') {
-			url = `https://www.flickr.com/services/rest/?method=${method_search}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json&tags=${opt.tags}`;
-		}
-
-		const data = await fetch(url);
-		const json = await data.json();
-
-		if (json.photos.photo.length === 0) {
-			return alert('해당 검색어의 결과값이 없습니다.');
-		}
-		setPics(json.photos.photo);
-	};
-
+	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setIsUser(false);
@@ -50,10 +28,11 @@ export default function Gallery() {
 			return alert('검색어를 입력하세요.');
 		}
 
-		fetchData({ type: 'search', tags: refInput.current.value });
+		dispatch(fetchFlickr({ type: 'search', tags: refInput.current.value }));
 		refInput.current.value = '';
 	};
 
+	//myGallery 클릭 이벤트 발생시 실행할 함수
 	const handleClickMy = (e) => {
 		setIsUser(true);
 		if (e.target.classList.contains('on')) return;
@@ -62,9 +41,10 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		fetchData({ type: 'user', id: my_id });
+		dispatch(fetchFlickr({ type: 'user', id: my_id }));
 	};
 
+	//Interest Gallery 클릭 이벤트 발생시 실행할 함수
 	const handleClickInterest = (e) => {
 		setIsUser(false);
 		if (e.target.classList.contains('on')) return;
@@ -73,19 +53,15 @@ export default function Gallery() {
 		btns.forEach((btn) => btn.classList.remove('on'));
 		e.target.classList.add('on');
 
-		fetchData({ type: 'interest' });
+		dispatch(fetchFlickr({ type: 'interest' }));
 	};
 
+	//profile 아이디 클릭시 실행할 함수
 	const handleClickProfile = (e) => {
 		if (IsUser) return;
-		fetchData({ type: 'user', id: e.target.innerText });
+		dispatch(fetchFlickr({ type: 'user', id: e.target.innerText }));
 		setIsUser(true);
 	};
-
-	useEffect(() => {
-		fetchData({ type: 'user', id: my_id });
-		//fetchData({ type: 'interest' });
-	}, []);
 
 	return (
 		<>
@@ -147,7 +123,7 @@ export default function Gallery() {
 			</Layout>
 
 			{IsModal && (
-				<Modal setIsModal={setIsModal}>
+				<Modal>
 					<img src={ActiveURL} alt='img' />
 				</Modal>
 			)}
