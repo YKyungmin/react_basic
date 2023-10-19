@@ -4,7 +4,7 @@ import './Info.scss';
 function Info() {
 	const { data } = useSelector((store) => store.flickr);
 	return (
-		<section className='info'>
+		<section className='info myScroll'>
 			{data.map((pic, idx) => {
 				return (
 					<article key={idx}>
