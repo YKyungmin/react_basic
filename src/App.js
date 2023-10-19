@@ -22,7 +22,7 @@ function App() {
 
 	useEffect(() => {
 		dispatch(fetchYoutube());
-		dispatch(fetchFlickr({ type: 'user', id: '164021883@N04' }));
+		dispatch(fetchFlickr({ type: 'user', id: '199261363@N05' }));
 	}, []);
 
 	return (
