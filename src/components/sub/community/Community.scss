@@ -1,121 +1,119 @@
 .Community {
-	.content {
-		.inputBox {
-			width: 100%;
+	.inputBox {
+		width: 100%;
+		border: 1px solid #aaa;
+		padding: 50px;
+		margin-bottom: 50px;
+		text-align: center;
+
+		h2 {
+			font: 2.5rem/1.4 'arial';
+			margin-bottom: 10px;
+		}
+
+		input[type='text'],
+		textarea {
+			width: 50%;
+			padding: 8px 10px;
 			border: 1px solid #aaa;
-			padding: 50px;
-			margin-bottom: 50px;
-			text-align: center;
+			resize: none;
+			margin-bottom: 10px;
+			background: #f0fdff;
+		}
 
-			h2 {
-				font: 2.5rem/1.4 'arial';
-				margin-bottom: 10px;
+		.btnSet {
+			button {
+				width: 225px;
+				height: 30px;
+				display: inline-block;
+				border: none;
+				background: #555;
+				margin-right: 19px;
+				margin-left: 19px;
+
+				border: 1px solid #555;
+
+				color: #fff;
+				transition: 0.3s;
+
+				color: #fff;
+				cursor: pointer;
+				&:hover {
+					border: 1px solid #111;
+					background: #f2f2f2;
+					color: #111;
+				}
 			}
+		}
+	}
 
-			input[type='text'],
-			textarea {
-				width: 50%;
-				padding: 8px 10px;
-				border: 1px solid #aaa;
-				resize: none;
-				margin-bottom: 10px;
-				background: #f0fdff;
+	.showBox {
+		width: 100%;
+		border: 1px solid #aaa;
+		padding: 50px;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+
+		article {
+			width: 47%;
+			background: #e0dfdf;
+			padding: 30px;
+			margin-bottom: 40px;
+			border-radius: 10px;
+			border: 1px solid #aaa;
+
+			.txt {
+				width: 88%;
+				h2 {
+					margin-bottom: 10px;
+				}
+
+				.txt_time {
+					margin-bottom: 15px;
+				}
+
+				.txt_content {
+					padding-bottom: 30px;
+					margin-bottom: 30px;
+					border-bottom: 1px solid #aaa;
+				}
+
+				input[type='text'],
+				textarea {
+					width: 50%;
+					padding: 8px 10px;
+					border: 1px solid #aaa;
+					resize: none;
+					margin-bottom: 10px;
+					background: #f0fdff;
+				}
 			}
-
 			.btnSet {
-				button {
-					width: 225px;
-					height: 30px;
-					display: inline-block;
-					border: none;
-					background: #555;
-					margin-right: 19px;
-					margin-left: 19px;
+				width: 100%;
+				display: flex;
+				gap: 20px;
+				align-items: center;
+				justify-content: flex-end;
 
+				button {
+					width: 80px;
 					border: 1px solid #555;
 
-					color: #fff;
-					transition: 0.3s;
+					font-size: 0.8rem;
 
+					background: #555;
+					padding: 1.8px;
+					margin-right: 5px;
 					color: #fff;
 					cursor: pointer;
+					text-align: center;
+					transition: 0.3s;
+
 					&:hover {
 						border: 1px solid #111;
 						background: #f2f2f2;
 						color: #111;
-					}
-				}
-			}
-		}
-
-		.showBox {
-			width: 100%;
-			border: 1px solid #aaa;
-			padding: 50px;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-between;
-
-			article {
-				width: 47%;
-				background: #e0dfdf;
-				padding: 30px;
-				margin-bottom: 40px;
-				border-radius: 10px;
-				border: 1px solid #aaa;
-
-				.txt {
-					width: 88%;
-					h2 {
-						margin-bottom: 10px;
-					}
-
-					.txt_time {
-						margin-bottom: 15px;
-					}
-
-					.txt_content {
-						padding-bottom: 30px;
-						margin-bottom: 30px;
-						border-bottom: 1px solid #aaa;
-					}
-
-					input[type='text'],
-					textarea {
-						width: 50%;
-						padding: 8px 10px;
-						border: 1px solid #aaa;
-						resize: none;
-						margin-bottom: 10px;
-						background: #f0fdff;
-					}
-				}
-				.btnSet {
-					width: 100%;
-					display: flex;
-					gap: 20px;
-					align-items: center;
-					justify-content: flex-end;
-
-					button {
-						width: 80px;
-						border: 1px solid #555;
-
-						font-size: 0.8rem;
-
-						background: #555;
-						padding: 1.8px;
-						margin-right: 5px;
-						color: #fff;
-						cursor: pointer;
-						text-align: center;
-						transition: 0.3s;
-
-						&:hover {
-							border: 1px solid #111;
-							background: #f2f2f2;
-							color: #111;
-						}
 					}
 				}
 			}
@@ -127,23 +125,21 @@
 .tablet,
 .mobile {
 	.Community {
-		.content {
-			.inputBox {
-				input[type='text'],
-				textarea {
-					width: 100%;
-				}
+		.inputBox {
+			input[type='text'],
+			textarea {
+				width: 100%;
+			}
 
-				.btnSet {
-					display: flex;
-					justify-content: space-between;
-					button {
-						width: 47%;
-						margin-right: 3%;
+			.btnSet {
+				display: flex;
+				justify-content: space-between;
+				button {
+					width: 47%;
+					margin-right: 3%;
 
-						&:last-child {
-							margin-right: 0%;
-						}
+					&:last-child {
+						margin-right: 0%;
 					}
 				}
 			}

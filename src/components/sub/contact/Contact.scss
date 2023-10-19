@@ -1,73 +1,37 @@
 .Contact {
-	figure {
-		background: orange;
+	form {
+		margin-top: 50px;
+		margin-bottom: 50px;
+		padding-top: 50px;
+		padding-bottom: 50px;
+		border-top: 1px solid gray;
+		border-bottom: 1px solid gray;
 	}
 
-	.content {
-		width: 100%;
-		background: #f7f7f7;
-
-		form {
-			margin-top: 50px;
-			margin-bottom: 50px;
-			padding-top: 50px;
-			padding-bottom: 50px;
-			border-top: 1px solid gray;
-			border-bottom: 1px solid gray;
-		}
-
-		h1 {
+	h1 {
+		text-align: center;
+		padding-top: 50px;
+	}
+	#mailBox {
+		width: 70vw;
+		margin: 0px auto;
+		margin-bottom: 100px;
+		p {
 			text-align: center;
-			padding-top: 50px;
+			margin-bottom: 30px;
+			color: gray;
 		}
-		#mailBox {
-			width: 70vw;
-			margin: 0px auto;
-			margin-bottom: 100px;
-			p {
-				text-align: center;
-				margin-bottom: 30px;
-				color: gray;
-			}
 
-			.upper {
+		.upper {
+			width: 100%;
+			display: flex;
+			flex-direction: column; /* 요소를 세로로 배치 */
+			margin-bottom: 50px;
+			justify-content: space-between;
+
+			span {
 				width: 100%;
-				display: flex;
-				flex-direction: column; /* 요소를 세로로 배치 */
-				margin-bottom: 50px;
-				justify-content: space-between;
-
-				span {
-					width: 100%;
-					padding-bottom: 10px;
-
-					label {
-						font: bold 1rem/1 'arial';
-						color: #555;
-						margin-right: 5px;
-						margin-left: 50px;
-						position: relative;
-					}
-					input[type='text'],
-					input[type='email'] {
-						width: 75%;
-						border: none;
-						padding: 10px 20px;
-						border-bottom: 1px solid #555;
-						margin-right: 50px;
-						margin-left: 50px;
-						outline: none;
-						transition: 0.5s;
-
-						&:focus {
-							background: rgba(171, 181, 191, 0.577);
-						}
-					}
-				}
-			}
-			.lower {
-				width: 100%;
-				margin-bottom: 10px;
+				padding-bottom: 10px;
 
 				label {
 					font: bold 1rem/1 'arial';
@@ -76,12 +40,14 @@
 					margin-left: 50px;
 					position: relative;
 				}
-				textarea {
+				input[type='text'],
+				input[type='email'] {
 					width: 75%;
 					border: none;
 					padding: 10px 20px;
 					border-bottom: 1px solid #555;
-					margin-left: 30px;
+					margin-right: 50px;
+					margin-left: 50px;
 					outline: none;
 					transition: 0.5s;
 
@@ -90,98 +56,124 @@
 					}
 				}
 			}
+		}
+		.lower {
+			width: 100%;
+			margin-bottom: 10px;
 
-			.btnSet {
-				width: 95%;
-				display: flex;
-				margin-top: 20px;
-				justify-content: flex-end;
+			label {
+				font: bold 1rem/1 'arial';
+				color: #555;
+				margin-right: 5px;
+				margin-left: 50px;
+				position: relative;
+			}
+			textarea {
+				width: 75%;
+				border: none;
+				padding: 10px 20px;
+				border-bottom: 1px solid #555;
+				margin-left: 30px;
+				outline: none;
+				transition: 0.5s;
 
-				input {
-					width: 150px;
-					border: 1px solid #555;
-
-					background: #555;
-					margin-right: 25px;
-					color: #fff;
-					cursor: pointer;
-					font: 1rem/40px 'arial';
-					text-align: center;
-					transition: 0.3s;
-
-					&:hover {
-						border: 1px solid #111;
-						background: #f2f2f2;
-						color: #111;
-					}
+				&:focus {
+					background: rgba(171, 181, 191, 0.577);
 				}
 			}
 		}
 
-		#mapBox {
-			.btnSet {
-				width: 83%;
-				display: flex;
-				justify-content: flex-end;
-				margin-bottom: 30px;
-				button {
-					width: 150px;
-					padding: 10px;
-					margin-right: 25px;
-					border: 1px solid #555;
-					background: #555;
-					color: #fff;
+		.btnSet {
+			width: 95%;
+			display: flex;
+			margin-top: 20px;
+			justify-content: flex-end;
 
-					transition: 0.3s;
-					&:hover {
-						border: 1px solid #111;
-						background: #f2f2f2;
-						color: #111;
-					}
-				}
-			}
-			.container {
-				width: 100%;
-				height: 60vh;
-				background: #111;
-				position: relative;
+			input {
+				width: 150px;
+				border: 1px solid #555;
 
-				.map,
-				.view {
-					width: 100%;
-					height: 100%;
-					background: #111;
-					position: absolute;
-					top: 0;
-					left: 0px;
-					opacity: 0;
-					z-index: 1;
+				background: #555;
+				margin-right: 25px;
+				color: #fff;
+				cursor: pointer;
+				font: 1rem/40px 'arial';
+				text-align: center;
+				transition: 0.3s;
 
-					&.on {
-						opacity: 1;
-						z-index: 2;
-					}
-				}
-			}
-
-			ul {
-				width: 80%;
-				display: flex;
-				justify-content: flex-end;
-				margin-top: 20px;
-				margin-bottom: 20px;
-				gap: 20px;
-
-				li {
-					cursor: pointer;
-				}
-
-				li.on {
-					color: hotpink;
+				&:hover {
+					border: 1px solid #111;
+					background: #f2f2f2;
+					color: #111;
 				}
 			}
 		}
 	}
+
+	#mapBox {
+		.btnSet {
+			width: 83%;
+			display: flex;
+			justify-content: flex-end;
+			margin-bottom: 30px;
+			button {
+				width: 150px;
+				padding: 10px;
+				margin-right: 25px;
+				border: 1px solid #555;
+				background: #555;
+				color: #fff;
+
+				transition: 0.3s;
+				&:hover {
+					border: 1px solid #111;
+					background: #f2f2f2;
+					color: #111;
+				}
+			}
+		}
+		.container {
+			width: 100%;
+			height: 60vh;
+			background: #111;
+			position: relative;
+
+			.map,
+			.view {
+				width: 100%;
+				height: 100%;
+				background: #111;
+				position: absolute;
+				top: 0;
+				left: 0px;
+				opacity: 0;
+				z-index: 1;
+
+				&.on {
+					opacity: 1;
+					z-index: 2;
+				}
+			}
+		}
+
+		ul {
+			width: 80%;
+			display: flex;
+			justify-content: flex-end;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			gap: 20px;
+
+			li {
+				cursor: pointer;
+			}
+
+			li.on {
+				color: hotpink;
+			}
+		}
+	}
+
 	.mainbox {
 		width: 100%;
 		display: flex;
@@ -220,19 +212,17 @@
 .tablet,
 .mobile {
 	.Contact {
-		.content {
-			.upperBox {
-				#mailBox {
-					width: 100%;
-					padding-right: 0px;
-				}
+		.upperBox {
+			#mailBox {
+				width: 100%;
+				padding-right: 0px;
+			}
 
-				#etc {
-					width: 100%;
-					height: auto;
-					padding-left: 0px;
-					border-left: none;
-				}
+			#etc {
+				width: 100%;
+				height: auto;
+				padding-left: 0px;
+				border-left: none;
 			}
 		}
 	}
