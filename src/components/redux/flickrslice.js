@@ -7,7 +7,7 @@ export const fetchFlickr = createAsyncThunk('flickr/request', async (opt) => {
 	const method_interest = 'flickr.interestingness.getList';
 	const method_user = 'flickr.people.getPhotos';
 	const method_search = 'flickr.photos.search';
-	const num = 100;
+	const num = 10;
 
 	if (opt.type === 'interest') {
 		url = `https://www.flickr.com/services/rest/?method=${method_interest}&api_key=${api_key}&per_page=${num}&nojsoncallback=1&format=json`;

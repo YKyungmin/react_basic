@@ -11,6 +11,7 @@ import { open } from '../../redux/modalSilce';
 export default function Gallery() {
 	const dispatch = useDispatch();
 	const Pics = useSelector((store) => store.flickr.data);
+	const IsModal = useSelector((store) => store.modal.isOpen);
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
@@ -103,9 +104,11 @@ export default function Gallery() {
 				</div>
 			</Layout>
 
-			<Modal>
-				<img src={ActiveURL} alt='img' />
-			</Modal>
+			{IsModal && (
+				<Modal>
+					<img src={ActiveURL} alt='img' />
+				</Modal>
+			)}
 		</>
 	);
 }
