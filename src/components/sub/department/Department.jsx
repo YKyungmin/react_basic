@@ -44,11 +44,25 @@ export default function Department() {
 				</div>
 
 				<section className='sliderWrap' ref={refSliderWrap}>
-					<article>1</article>
-					<article>2</article>
-					<article>3</article>
-					<article>4</article>
-					<article>5</article>
+					<article>
+						<img src='img/D_back_1.jpg' alt='1' />
+					</article>
+					<article>
+						{' '}
+						<img src='img/D_back_2.jpg' alt='2' />
+					</article>
+					<article>
+						{' '}
+						<img src='img/D_back_3.jpg' alt='3' />
+					</article>
+					<article>
+						{' '}
+						<img src='img/D_back_4.jpg' alt='4' />
+					</article>
+					<article>
+						{' '}
+						<img src='img/D_back_5.jpg' alt='5' />
+					</article>
 				</section>
 			</div>
 			<section className='main'>
@@ -60,7 +74,7 @@ export default function Department() {
 					</h2>
 				</div>
 				<div className='rigth'>
-					<p className='p_1'>
+					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
 						totam illum iusto rem tenetur eligendi molestias repellendus, quod
 						non magni quam repudiandae id reprehenderit odit, tempore ipsam
@@ -75,7 +89,22 @@ export default function Department() {
 						vero vitae hic.
 					</p>
 
-					<p className='p_2'>
+					<p>
+						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
+						totam illum iusto rem tenetur eligendi molestias repellendus, quod
+						non magni quam repudiandae id reprehenderit odit, tempore ipsam
+						beatae qui harum pariatur! Iusto sit fugiat labore ab incidunt
+						consequuntur, odio. unde voluptates atque delectus, aliquam
+						assumenda provident, maiores vero vitae hic. Lorem ipsum dolor sit
+						amet consectetur adipisicing elit. Officiis totam illum iusto rem
+						tenetur eligendi molestias repellendus, quod non magni quam
+						repudiandae id reprehenderit odit, tempore ipsam beatae qui harum
+						pariatur! Iusto sit fugiat labore ab incidunt consequuntur, odio
+						unde voluptates atque delectus, aliquam assumenda provident, maiores
+						vero vitae hic.
+					</p>
+
+					<p>
 						Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis
 						totam illum iusto rem tenetur eligendi molestias repellendus, quod
 						non magni quam repudiandae id reprehenderit odit, tempore ipsam

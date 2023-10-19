@@ -171,6 +171,19 @@ export default function Contact() {
 						</p>
 					</div>
 				</div>
+
+				<div className='textbox'>
+					<div className='in_t_box'>
+						<h3>
+							Lorem ipsum <br />
+							dolor sit amet.
+						</h3>
+						<p>
+							Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque
+							voluptas porro repellat rem nemo deleniti.
+						</p>
+					</div>
+				</div>
 			</div>
 			<div id='mapBox'>
 				<div className='container'>
@@ -207,7 +220,7 @@ export default function Contact() {
 
 			<div id='mailBox'>
 				<form ref={form} onSubmit={sendEmail}>
-					<h1>ASK</h1>
+					<h1 className='ASK'>ASK</h1>
 					<p className='p_3'>
 						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima
 						fuga iste velit similique totam, omnis adipisci maiores ipsa quidem

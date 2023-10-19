@@ -50,6 +50,16 @@ function News() {
 						);
 				})}
 			</div>
+
+			{/* dummyData 출력 */}
+			<div className='postWrap'>
+				{dummyData.map((el, idx) => (
+					<article key={idx}>
+						<h2>{el.title}</h2>
+						<p>{el.content}</p>
+					</article>
+				))}
+			</div>
 		</section>
 	);
 }

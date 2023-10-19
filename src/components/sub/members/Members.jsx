@@ -198,21 +198,22 @@ export default function Members() {
 							<tr>
 								<th>Gender</th>
 								<td ref={refRadioGroup}>
-									<label htmlFor='female'>female</label>
 									<input
 										type='radio'
 										name='gender'
 										id='female'
 										onChange={handleRadio}
 									/>
+									<label htmlFor='female'>female</label>
 
-									<label htmlFor='male'>male</label>
 									<input
 										type='radio'
 										name='gender'
 										id='male'
 										onChange={handleRadio}
 									/>
+									<label htmlFor='male'>male</label>
+
 									{Errs.gender && <p>{Errs.gender}</p>}
 								</td>
 							</tr>
@@ -221,29 +222,27 @@ export default function Members() {
 							<tr>
 								<th>Interests</th>
 								<td ref={refCheckGroup}>
-									<label htmlFor='sports'>sports</label>
 									<input
 										type='checkbox'
 										id='sports'
 										name='interests'
 										onChange={handleCheck}
-									/>
-
-									<label htmlFor='game'>game</label>
+									/>{' '}
+									<label htmlFor='sports'>sports</label>
 									<input
 										type='checkbox'
 										id='game'
 										name='interests'
 										onChange={handleCheck}
-									/>
-
-									<label htmlFor='music'>music</label>
+									/>{' '}
+									<label htmlFor='game'>game</label>
 									<input
 										type='checkbox'
 										id='music'
 										name='interests'
 										onChange={handleCheck}
-									/>
+									/>{' '}
+									<label htmlFor='music'>music</label>
 									{Errs.interests && <p>{Errs.interests}</p>}
 								</td>
 							</tr>

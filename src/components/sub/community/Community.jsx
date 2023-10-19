@@ -128,18 +128,16 @@ export default function Community() {
 			<div className='showBox'>
 				{Posts.map((post, idx) => {
 					const string = JSON.stringify(post.data);
-
 					const [year, month, date] = string
 						.split('T')[0]
 						.split('"')[1]
 						.split('-');
-
 					let [hour, min, sec] = string.split('T')[1].split('.')[0].split(':');
 					hour = parseInt(hour) + 9;
 					hour >= 24 && (hour = hour - 24);
 
 					if (post.enableUpdate) {
-						//수정 모드 렌더링
+						// 수정 모드 렌더링
 						return (
 							<article key={idx}>
 								<div className='txt'>
@@ -173,7 +171,6 @@ export default function Community() {
 									<p className='txt_date '>{`Date : ${year} / ${month} / ${date}`}</p>
 									<p className='txt_time '>{`Time : ${hour}:${min}:${sec}`}</p>
 								</div>
-
 								<nav className='btnSet'>
 									<button onClick={() => enableUpdate(idx)}>Edit</button>
 									<button onClick={() => deletePost(idx)}>Delete</button>
@@ -182,6 +179,18 @@ export default function Community() {
 						);
 					}
 				})}
+
+				{/* dummyData 출력 */}
+				{dummyData.map((post, idx) => (
+					<article key={idx}>
+						<div className='txt'>
+							<h2>{post.title}</h2>
+							<p className='txt_content'>{post.content}</p>
+							<p className='txt_date'>{`Date: ${post.data.toLocaleDateString()}`}</p>
+							<p className='txt_time'>{`Time: ${post.data.toLocaleTimeString()}`}</p>
+						</div>
+					</article>
+				))}
 			</div>
 		</Layout>
 	);
