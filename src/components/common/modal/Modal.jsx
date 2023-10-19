@@ -1,7 +1,7 @@
 import './Modal.scss';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { close } from '../../../components/redux/menuSlice';
+import { close } from '../../../components/redux/modalSilce';
 import { AnimatePresence, motion } from 'framer-motion';
 
 const Modal = ({ children }) => {
