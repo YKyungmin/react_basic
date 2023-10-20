@@ -1,30 +1,31 @@
 import './Visual.scss';
-import { useSelector } from 'react-redux';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { useState } from 'react';
 import 'swiper/css';
 import { Link } from 'react-router-dom';
+import { useYoutubeQuery } from '../../../hooks/useYoutube';
 
 function Visual() {
-	const { data } = useSelector((store) => store.youtube);
 	const [Index, setIndex] = useState(0);
+	const { data, isSuccess } = useYoutubeQuery();
 
 	return (
 		<section className='visual'>
 			<div className='titBox'>
 				<ul>
-					{data.map((tit, idx) => {
-						if (idx >= 5) return null;
-						return (
-							<li key={idx} className={idx === Index ? 'on' : ''}>
-								<h3>{tit.snippet.title}</h3>
-								<p>{tit.snippet.description.substr(0, 300) + '...'}</p>
-								<button>
-									<Link to={`/detail/${tit.id}`}>View Deatil</Link>
-								</button>
-							</li>
-						);
-					})}
+					{isSuccess &&
+						data.map((tit, idx) => {
+							if (idx >= 7) return null;
+							return (
+								<li key={idx} className={idx === Index ? 'on' : ''}>
+									<h3>{tit.snippet.title}</h3>
+									<p>{tit.snippet.description.substr(0, 300) + '...'}</p>
+									<button>
+										<Link to={`/detail/${tit.id}`}>View Deatil</Link>
+									</button>
+								</li>
+							);
+						})}
 				</ul>
 			</div>
 			<Swiper
@@ -45,17 +46,25 @@ function Visual() {
 					},
 				}}
 			>
-				{data.map((vid, idx) => {
-					if (idx >= 5) return null;
-					return (
-						<SwiperSlide key={idx}>
-							<div className='pic'>
-								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
-								<img src={vid.snippet.thumbnails.maxres.url} alt={vid.title} />
-							</div>
-						</SwiperSlide>
-					);
-				})}
+				{isSuccess &&
+					data.map((vid, idx) => {
+						if (idx >= 5) return null;
+						return (
+							<SwiperSlide key={idx}>
+								<div className='pic'>
+									<img
+										src={vid.snippet.thumbnails.maxres.url}
+										alt={vid.title}
+									/>
+									<img
+										src={vid.snippet.thumbnails.maxres.url}
+										alt={vid.title}
+									/>
+								</div>
+								<h2>{vid.snippet.title}</h2>
+							</SwiperSlide>
+						);
+					})}
 			</Swiper>
 		</section>
 	);

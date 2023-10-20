@@ -1,15 +1,15 @@
+import { useDebounce } from '../../../hooks/useDebounce';
 import Layout from '../../common/layout/Layout';
 import './Members.scss';
-import { useState, useRef } from 'react';
-
+import { useState, useRef, useEffect } from 'react';
 export default function Members() {
 	const initVal = {
 		userid: '',
 		pwd1: '',
 		pwd2: '',
 		email: '',
-		gender: false,
-		interests: false,
+		gender: '',
+		interests: [],
 		edu: '',
 		comments: '',
 	};
@@ -18,6 +18,9 @@ export default function Members() {
 	const refSelGroup = useRef(null);
 	const [Val, setVal] = useState(initVal);
 	const [Errs, setErrs] = useState({});
+	const [Mounted, setMounted] = useState(true);
+
+	const DebouncedVal = useDebounce(Val);
 
 	const resetForm = (e) => {
 		e.preventDefault();
@@ -43,10 +46,10 @@ export default function Members() {
 
 	const handleCheck = (e) => {
 		const { name } = e.target;
-		let isChecked = false;
+		let checkArr = [];
 		const inputs = e.target.parentElement.querySelectorAll('input');
-		inputs.forEach((input) => input.checked && (isChecked = true));
-		setVal({ ...Val, [name]: isChecked });
+		inputs.forEach((input) => input.checked && checkArr.push(input.value));
+		setVal({ ...Val, [name]: checkArr });
 	};
 
 	const check = (value) => {
@@ -92,7 +95,7 @@ export default function Members() {
 			errs.gender = '성별은 필수 체크항목입니다.';
 		}
 
-		if (!value.interests) {
+		if (value.interests.length === 0) {
 			errs.interests = '관심사를 하나이상 체크해주세요.';
 		}
 
@@ -111,10 +114,19 @@ export default function Members() {
 		if (Object.keys(check(Val)).length === 0) {
 			alert('인증통과');
 		} else {
-			setErrs(check(Val));
+			Mounted && setErrs(check(DebouncedVal));
 		}
 	};
+	const showCheck = () => {
+		setErrs(check(Val));
+	};
 
+	useEffect(() => {
+		console.log('Val state값 변경에 의해서 showCheck함수 호출');
+		showCheck();
+		console.log(DebouncedVal);
+		return () => setMounted(false);
+	}, [DebouncedVal]);
 	return (
 		<Layout title={'Members'}>
 			<form onSubmit={handleSubmit}>
@@ -202,7 +214,8 @@ export default function Members() {
 										type='radio'
 										name='gender'
 										id='female'
-										onChange={handleRadio}
+										defaultValue='female'
+										onChange={handleChange}
 									/>
 									<label htmlFor='female'>female</label>
 
@@ -210,7 +223,8 @@ export default function Members() {
 										type='radio'
 										name='gender'
 										id='male'
-										onChange={handleRadio}
+										defaultValue='male'
+										onChange={handleChange}
 									/>
 									<label htmlFor='male'>male</label>
 
@@ -227,12 +241,14 @@ export default function Members() {
 										id='sports'
 										name='interests'
 										onChange={handleCheck}
+										defaultValue='sports'
 									/>{' '}
 									<label htmlFor='sports'>sports</label>
 									<input
 										type='checkbox'
 										id='game'
 										name='interests'
+										defaultValue='game'
 										onChange={handleCheck}
 									/>{' '}
 									<label htmlFor='game'>game</label>
@@ -240,6 +256,7 @@ export default function Members() {
 										type='checkbox'
 										id='music'
 										name='interests'
+										defaultValue='music'
 										onChange={handleCheck}
 									/>{' '}
 									<label htmlFor='music'>music</label>
