@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import './Header.scss';
 import { FaBars } from 'react-icons/fa';
-import { toggle } from '../../../components/redux/menuSlice';
+import { toggle } from '../../../redux/menuSlice';
 import { useDispatch } from 'react-redux';
 
 export default function Header({ isMain }) {

@@ -6,8 +6,8 @@ import './Gallery.scss';
 import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchFlickr } from '../../../components/redux/flickrSlice';
-import { open } from '../../../components/redux/modalSilce';
+import { fetchFlickr } from '../../../redux/flickrSlice';
+import { open } from '../../../redux/modalSilce';
 
 export default function Gallery() {
 	const dispatch = useDispatch();
@@ -94,38 +94,39 @@ export default function Gallery() {
 						disableImagesLoaded={false}
 						updateOnEachImageLoad={false}
 					>
-						{Pics.map((data, idx) => {
-							return (
-								<article key={idx}>
-									<div className='inner'>
-										<img
-											className='pic'
-											src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
-											alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
-											onClick={(e) => {
-												setActiveURL(e.target.getAttribute('alt'));
-												dispatch(open());
-											}}
-										/>
-										<h2>{data.title}</h2>
-
-										<div className='profile'>
+						{Pics.length !== 0 &&
+							Pics.map((data, idx) => {
+								return (
+									<article key={idx}>
+										<div className='inner'>
 											<img
-												src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
-												alt={data.owner}
-												onError={(e) => {
-													e.target.setAttribute(
-														'src',
-														'https://www.flickr.com/images/buddyicon.gif'
-													);
+												className='pic'
+												src={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_m.jpg`}
+												alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
+												onClick={(e) => {
+													setActiveURL(e.target.getAttribute('alt'));
+													dispatch(open());
 												}}
 											/>
-											<span onClick={handleClickProfile}>{data.owner}</span>
+											<h2>{data.title}</h2>
+
+											<div className='profile'>
+												<img
+													src={`http://farm${data.farm}.staticflickr.com/${data.server}/buddyicons/${data.owner}.jpg`}
+													alt={data.owner}
+													onError={(e) => {
+														e.target.setAttribute(
+															'src',
+															'https://www.flickr.com/images/buddyicon.gif'
+														);
+													}}
+												/>
+												<span onClick={handleClickProfile}>{data.owner}</span>
+											</div>
 										</div>
-									</div>
-								</article>
-							);
-						})}
+									</article>
+								);
+							})}
 					</Masonry>
 				</div>
 			</Layout>

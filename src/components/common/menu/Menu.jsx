@@ -2,7 +2,7 @@ import './Menu.scss';
 import { Link, NavLink } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
 import { useSelector, useDispatch } from 'react-redux';
-import { close } from '../../../components/redux/menuSlice';
+import { close } from '../../../redux/menuSlice';
 
 function Menu() {
 	const dispatch = useDispatch();
@@ -20,6 +20,11 @@ function Menu() {
 				>
 					<h1>
 						<Link to='/'>LOGO</Link>
+						<acronym
+							title='
+						
+						'
+						></acronym>
 					</h1>
 
 					<ul>

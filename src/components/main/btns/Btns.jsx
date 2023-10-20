@@ -17,13 +17,24 @@ function Btns() {
 		setNum(pos.current.length);
 	};
 
+	const modifyPos = () => {
+		let activeIndex = 0;
+		if (!refBtns.current) return;
+		const lis = refBtns.current.querySelectorAll('li');
+		lis.forEach((li, idx) => {
+			li.classList.contains('on') && (activeIndex = idx);
+		});
+		window.scrollTo(0, pos.current[activeIndex]);
+	};
+
 	//브라우저 스크롤시 버튼을 반복돌면서 스크롤이 특정 섹션영역을 넘어가면 해당 순번의 버튼 활성화 함수
 	const activation = () => {
+		if (!refBtns.current) return;
 		const btns = refBtns.current.querySelectorAll('li');
 		const scroll = window.scrollY;
 
 		pos.current.forEach((el, idx) => {
-			if (scroll >= el) {
+			if (scroll >= el - window.innerHeight / 2) {
 				for (let btn of btns) btn.classList.remove('on');
 				btns[idx].classList.add('on');
 			}
@@ -31,12 +42,15 @@ function Btns() {
 	};
 
 	useEffect(() => {
+		modifyPos();
 		getPos();
 		window.addEventListener('resize', getPos);
+		window.addEventListener('resize', modifyPos);
 		window.addEventListener('scroll', activation);
 
 		return () => {
 			window.removeEventListener('resize', getPos);
+			window.removeEventListener('resize', modifyPos);
 			window.removeEventListener('scroll', activation);
 		};
 	}, []);

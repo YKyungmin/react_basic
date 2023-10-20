@@ -12,8 +12,8 @@ import Community from './components/sub/community/Community';
 import Main from './components/main/mainWrap/Main';
 import { useMedia } from './hooks/useMedia';
 import { useEffect } from 'react';
-import { fetchYoutube } from './components/redux/youtubeSlice';
-import { fetchFlickr } from './components/redux/flickrSlice';
+import { fetchYoutube } from './redux/youtubeSlice';
+import { fetchFlickr } from './redux/flickrSlice';
 
 import { useDispatch } from 'react-redux';
 import Menu from './components/common/menu/Menu';
