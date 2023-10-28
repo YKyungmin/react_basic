@@ -7,14 +7,13 @@
 import Layout from '../../common/layout/Layout';
 import Modal from '../../common/modal/Modal';
 import './Gallery.scss';
-import { useState, useRef, useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useState, useRef } from 'react';
 import Masonry from 'react-masonry-component';
-import { open } from '../../../redux/modalSilce';
 import { useFlickrQuery } from '../../../hooks/useFlickr';
+import { useGlobalData } from '../../../hooks/useGlobalContext';
 
 export default function Gallery() {
-	const dispatch = useDispatch();
+	const { setModalOpen } = useGlobalData();
 	const refInput = useRef(null);
 	const refBtnSet = useRef(null);
 	const [ActiveURL, setActiveURL] = useState('');
@@ -22,7 +21,6 @@ export default function Gallery() {
 	const my_id = '199261363@N05';
 	const [Opt, setOpt] = useState({ type: 'user', id: my_id });
 	const { data: Pics, isSuccess } = useFlickrQuery(Opt);
-	console.log('isSuccess', isSuccess);
 
 	//submit이벤트 발생시 실행할 함수
 	const handleSubmit = (e) => {
@@ -111,7 +109,7 @@ export default function Gallery() {
 												alt={`https://live.staticflickr.com/${data.server}/${data.id}_${data.secret}_b.jpg`}
 												onClick={(e) => {
 													setActiveURL(e.target.getAttribute('alt'));
-													dispatch(open());
+													setModalOpen(true);
 												}}
 											/>
 											<h2>{data.title}</h2>

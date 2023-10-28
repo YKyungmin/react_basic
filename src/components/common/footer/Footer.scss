@@ -1,0 +1,45 @@
+footer {
+	padding: 50px 10vw;
+	background: #f8f8f8;
+	border-top: 0.5px solid #111;
+
+	.top {
+		display: flex;
+		justify-content: space-between;
+
+		h2 {
+			color: #e1d6c4;
+			font-size: 3rem;
+		}
+
+		.footerMenu {
+			width: 65%;
+			// border: solid 1px red;
+			display: flex;
+			justify-content: space-between;
+
+			h3 {
+				font-size: 1.3rem;
+				color: #9d958a;
+				margin-bottom: 15px;
+			}
+
+			ul {
+				li {
+					transition: 0.3s;
+
+					color: gray;
+					margin-bottom: 10px;
+					position: relative;
+
+					&:hover {
+						transform: scale(1.1);
+						cursor: pointer;
+						font-weight: bolder;
+						color: #111;
+					}
+				}
+			}
+		}
+	}
+}

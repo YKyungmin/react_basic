@@ -61,7 +61,6 @@ function Visual() {
 										alt={vid.title}
 									/>
 								</div>
-								<h2>{vid.snippet.title}</h2>
 							</SwiperSlide>
 						);
 					})}

@@ -21,6 +21,7 @@ export default function Members() {
 	const [Mounted, setMounted] = useState(true);
 
 	const DebouncedVal = useDebounce(Val);
+	console.log(DebouncedVal);
 
 	const resetForm = (e) => {
 		e.preventDefault();
@@ -105,6 +106,7 @@ export default function Members() {
 		if (value.comments.length < 10) {
 			errs.comments = '남기는말은 10글자 이상 입력하세요.';
 		}
+		console.log(errs);
 		return errs;
 	};
 
@@ -126,7 +128,7 @@ export default function Members() {
 		showCheck();
 		console.log(DebouncedVal);
 		return () => setMounted(false);
-	}, [DebouncedVal]);
+	}, [DebouncedVal, Mounted]);
 	return (
 		<Layout title={'Members'}>
 			<form onSubmit={handleSubmit}>

@@ -46,6 +46,7 @@ function Btns() {
 	const throttledGetPos = useThrottle(getPos);
 
 	useEffect(() => {
+		console.log('repeat');
 		modifyPos();
 		getPos();
 		window.addEventListener('resize', throttledGetPos);
@@ -58,8 +59,7 @@ function Btns() {
 			window.removeEventListener('resize', modifyPos);
 			window.scrollTo(0, 0);
 		};
-	}, []);
-
+	}, [throttledActivation, throttledGetPos]);
 	return (
 		<ul className='scroll_navi' ref={refBtns}>
 			{Array(Num)
